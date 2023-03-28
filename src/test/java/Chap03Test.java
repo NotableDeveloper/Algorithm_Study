@@ -11,4 +11,13 @@ public class Chap03Test {
 
         Assertions.assertArrayEquals(new int[]{1, 2, 3, 3, 5, 6, 7, 9}, answer);
     }
+
+    @Test
+    void Problem02(){
+        int n = 5, m = 5;
+        int[] arr1 = {1, 3, 9, 5, 2}, arr2 = {3, 2, 5, 7, 8};
+        int[] answer = Chap03_02.solution(n, arr1, m, arr2);
+
+        Assertions.assertArrayEquals(new int[]{2, 3, 5}, answer);
+    }
 }
