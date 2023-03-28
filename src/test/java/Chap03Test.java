@@ -20,4 +20,13 @@ public class Chap03Test {
 
         Assertions.assertArrayEquals(new int[]{2, 3, 5}, answer);
     }
+
+    @Test
+    void Problem03(){
+        int n = 10, k = 3;
+        int[] arr1 = {12, 15, 11, 20, 25, 10, 19, 13, 15};
+        int answer = Chap03_03.solution(n, k, arr1);
+
+        Assertions.assertEquals(56, answer);
+    }
 }
