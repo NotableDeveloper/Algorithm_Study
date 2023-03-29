@@ -51,7 +51,7 @@ public class Chap03Test {
     void Problem06(){
         int n = 14, k = 2;
         int[] arr = {1, 1, 0, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1};
-        int answer = Chap03_06.solution(8, arr);
+        int answer = Chap03_06.solution(n, k, arr);
 
         Assertions.assertEquals(8, answer);
     }
