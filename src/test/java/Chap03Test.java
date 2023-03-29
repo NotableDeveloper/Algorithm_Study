@@ -38,4 +38,12 @@ public class Chap03Test {
 
         Assertions.assertEquals(3, answer);
     }
+
+    @Test
+    void Problem05(){
+        int n = 15;
+        int answer = Chap03_05.solution(n);
+
+        Assertions.assertEquals(3, answer);
+    }
 }
