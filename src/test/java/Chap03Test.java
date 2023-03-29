@@ -46,4 +46,13 @@ public class Chap03Test {
 
         Assertions.assertEquals(3, answer);
     }
+
+    @Test
+    void Problem06(){
+        int n = 14, k = 2;
+        int[] arr = {1, 1, 0, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1};
+        int answer = Chap03_06.solution(8, arr);
+
+        Assertions.assertEquals(8, answer);
+    }
 }
