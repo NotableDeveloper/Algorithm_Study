@@ -24,9 +24,18 @@ public class Chap03Test {
     @Test
     void Problem03(){
         int n = 10, k = 3;
-        int[] arr1 = {12, 15, 11, 20, 25, 10, 20, 19, 13, 15};
-        int answer = Chap03_03.solution(n, k, arr1);
+        int[] arr = {12, 15, 11, 20, 25, 10, 20, 19, 13, 15};
+        int answer = Chap03_03.solution(n, k, arr);
 
         Assertions.assertEquals(56, answer);
+    }
+
+    @Test
+    void Problem04(){
+        int n = 8, m = 6;
+        int[] arr = {1, 2, 1, 3, 1, 1, 1, 2};
+        int answer = Chap03_04.solution(n, m, arr);
+
+        Assertions.assertEquals(3, answer);
     }
 }
