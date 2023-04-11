@@ -36,4 +36,12 @@ public class Chap07Test {
         getOutput();
         Assertions.assertEquals("1011", output);
     }
+
+    @Test
+    void Problem03(){
+        int n = 5;
+        Chap07_03.solution(n);
+        getOutput();
+        Assertions.assertEquals("120", output);
+    }
 }
