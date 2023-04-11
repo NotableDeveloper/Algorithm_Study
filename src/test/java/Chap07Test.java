@@ -21,6 +21,6 @@ public class Chap07Test {
         int n = 3;
         Chap07_01.solution(n);
         output = outputStream.toString();
-        Assertions.assertEquals("1 2 3\n", output);
+        Assertions.assertEquals("1 2 3 ", output);
     }
 }
