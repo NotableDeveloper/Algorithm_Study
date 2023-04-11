@@ -44,4 +44,12 @@ public class Chap07Test {
         int answer = Chap07_03.solution(n);
         Assertions.assertEquals(120, answer);
     }
+
+    @Test
+    void Problem04(){
+        int n = 10;
+        Chap07_04.solution(n);
+        getOutput();
+        Assertions.assertEquals("1 1 2 3 5 8 13 21 34 55 ", output);
+    }
 }
