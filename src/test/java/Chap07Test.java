@@ -1,8 +1,10 @@
 import Chap07.Chap07_01;
 import Chap07.Chap07_02;
 import Chap07.Chap07_03;
+import Chap07.Chap07_04;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayOutputStream;
@@ -48,7 +50,12 @@ public class Chap07Test {
     @Test
     void Problem04(){
         int n = 10;
-        Chap07_04.solution(n);
+        Chap07_04.fibo = new int[n + 1];
+
+        for(int i = 1; i <= n; i++){
+            System.out.print(Chap07_04.solution(i) + " ");
+        }
+
         getOutput();
         Assertions.assertEquals("1 1 2 3 5 8 13 21 34 55 ", output);
     }
