@@ -1,5 +1,6 @@
 import Chap07.Chap07_01;
 import Chap07.Chap07_02;
+import Chap07.Chap07_03;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -40,8 +41,7 @@ public class Chap07Test {
     @Test
     void Problem03(){
         int n = 5;
-        Chap07_03.solution(n);
-        getOutput();
-        Assertions.assertEquals("120", output);
+        int answer = Chap07_03.solution(n);
+        Assertions.assertEquals(120, answer);
     }
 }
