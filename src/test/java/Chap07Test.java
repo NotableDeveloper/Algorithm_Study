@@ -16,11 +16,23 @@ public class Chap07Test {
         System.setOut(new PrintStream(outputStream));
     }
 
+    static void getOutput(){
+        output = outputStream.toString();
+    }
+
     @Test
     void Problem01(){
         int n = 3;
         Chap07_01.solution(n);
-        output = outputStream.toString();
+        getOutput();
         Assertions.assertEquals("1 2 3 ", output);
+    }
+
+    @Test
+    void Problem02(){
+        int n = 11;
+        Chap07_02.solution(n);
+        getOutput();
+        Assertions.assertEquals("1011", output);
     }
 }
