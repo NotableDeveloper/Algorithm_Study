@@ -18,7 +18,7 @@ public class Chap03_06 {
                 lt++;
             }
             
-            // rt - lt + 1 : 연속된 1의 갯
+            // rt - lt + 1 : 연속된 1의 갯수
             answer = Math.max(answer, rt - lt + 1);
         }
         return answer;
