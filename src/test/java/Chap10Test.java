@@ -17,4 +17,12 @@ public class Chap10Test {
         int answer = Chap10_02.solution(n);
         Assertions.assertEquals(34, answer);
     }
+
+    @Test
+    void Problem03(){
+        int n = 8;
+        int[] arr = {5, 3, 7, 8, 6, 2, 9, 4};
+        int answer = Chap10_03.solution(n, arr);
+        Assertions.assertEquals(4, answer);
+    }
 }
