@@ -9,4 +9,11 @@ public class Chap10Test {
         int answer = Chap10_01.solution(n);
         Assertions.assertEquals(21, answer);
     }
+
+    @Test
+    void Problem02(){
+        int n = 7;
+        int answer = Chap10_02.solution(n);
+        Assertions.assertEquals(34, answer);
+    }
 }
