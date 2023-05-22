@@ -40,4 +40,14 @@ public class Chap10Test {
         int answer = Chap10_04.solution(n, bricks);
         Assertions.assertEquals(10, answer);
     }
+
+    @Test
+    void Problem05(){
+        int n = 3;
+        int[] coin = new int[n];
+        int money = 15;
+
+        int answer = Chap10_05.solution(n, coin, money);
+        Assertions.assertEquals(3, answer);
+    }
 }
