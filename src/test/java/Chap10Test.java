@@ -44,7 +44,7 @@ public class Chap10Test {
     @Test
     void Problem05(){
         int n = 3;
-        int[] coin = new int[n];
+        int[] coin = {1, 2, 5};
         int money = 15;
 
         int answer = Chap10_05.solution(n, coin, money);
