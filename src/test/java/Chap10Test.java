@@ -1,11 +1,10 @@
+import Chap10.Brick;
 import Chap10.Chap10_01;
 import Chap10.Chap10_02;
 import Chap10.Chap10_03;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-
 import java.util.ArrayList;
-
 
 public class Chap10Test {
     @Test
