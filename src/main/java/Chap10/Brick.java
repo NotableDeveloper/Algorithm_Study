@@ -10,6 +10,9 @@ public class Brick implements Comparable<Brick>{
         this.weight = weight;
     }
 
+    /*
+        넓이 중심으로 내림차순 정렬한다.
+     */
     @Override
     public int compareTo(Brick brick) {
         return brick.width - this.width;

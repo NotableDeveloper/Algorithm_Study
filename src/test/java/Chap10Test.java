@@ -1,7 +1,4 @@
-import Chap10.Brick;
-import Chap10.Chap10_01;
-import Chap10.Chap10_02;
-import Chap10.Chap10_03;
+import Chap10.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
@@ -31,6 +28,7 @@ public class Chap10Test {
 
     @Test
     void Problem04(){
+        int n = 5;
         ArrayList<Brick> bricks = new ArrayList<Brick>();
 
         bricks.add(new Brick(25, 3, 4));
@@ -39,7 +37,7 @@ public class Chap10Test {
         bricks.add(new Brick(16, 2, 5));
         bricks.add(new Brick(1, 5, 2));
 
-        int answer = Chap10_04.solution(bricks);
+        int answer = Chap10_04.solution(n, bricks);
         Assertions.assertEquals(10, answer);
     }
 }
