@@ -53,10 +53,16 @@ public class Chap10Test {
 
     @Test
     void Problem06(){
-        int n = 5, m = 20;
-        int[][] problemSet = {{10, 5}, {25, 12}, {15, 8}, {6, 3}, {7, 4}};
+        int m = 20;
+        ArrayList<Problem> problems = new ArrayList<Problem>();
+        problems.add(new Problem(5, 20));
+        problems.add(new Problem(10, 5));
+        problems.add(new Problem(25, 12));
+        problems.add(new Problem(15, 8));
+        problems.add(new Problem(6, 3));
+        problems.add(new Problem(7, 4));
 
-        int answer = Chap10_06.solution(n, m, problemSet);
+        int answer = Chap10_06.solution(m, problems);
         Assertions.assertEquals(41, answer);
     }
 }
