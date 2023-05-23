@@ -50,4 +50,13 @@ public class Chap10Test {
         int answer = Chap10_05.solution(n, coin, money);
         Assertions.assertEquals(3, answer);
     }
+
+    @Test
+    void Problem06(){
+        int n = 5, m = 20;
+        int[][] problemSet = {{10, 5}, {25, 12}, {15, 8}, {6, 3}, {7, 4}};
+
+        int answer = Chap10_06.solution(n, m, problemSet);
+        Assertions.assertEquals(41, answer);
+    }
 }
