@@ -1,10 +1,12 @@
 package Advanced;
 
 import Advanced.Chap01.Chap01_01;
+import Advanced.Chap01.Chap01_02;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class Chap01Test {
     @Test
@@ -28,5 +30,39 @@ public class Chap01Test {
            char[] answer = Chap01_01.solutionWithSimulation(n, input);
            Assertions.assertArrayEquals(expected, answer);
        }
+    }
+
+    @Test
+    void Problem02(){
+        int[] array = {10, 25};
+        ArrayList<int[][]> inputs = new ArrayList<>();
+        ArrayList<int[]> answers = new ArrayList<>();
+
+        inputs.add(new int[][]{
+                {0, 0, 0, 0, 0},
+                {0, 1, 1, 0, 0},
+                {0, 0, 0, 0, 0},
+                {1, 0, 1, 0, 1},
+                {0, 0, 0, 0, 0}});
+
+
+        inputs.add(new int[][]{
+                {0, 0, 1, 0, 0},
+                {0, 1, 0, 0, 0},
+                {0, 0, 0, 0, 0},
+                {1, 0, 0, 0, 1},
+                {0, 0, 0, 0, 0}});
+
+        answers.add(new int[]{2, 2});
+        answers.add(new int[]{0, 1});
+
+        for(int i = 0; i < answers.size(); i++){
+            int k = array[i];
+            int[][] board = inputs.get(i);
+            int[] answer = Chap01_02.solution(board, k);
+            int[] expected = answers.get(i);
+
+            Assertions.assertArrayEquals(expected, answer);
+        }
     }
 }
