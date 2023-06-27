@@ -2,11 +2,11 @@ package Advanced;
 
 import Advanced.Chap01.Chap01_01;
 import Advanced.Chap01.Chap01_02;
+import Advanced.Chap01.Chap01_03;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-
 import java.util.*;
-import java.util.stream.Collectors;
+
 
 public class Chap01Test {
     @Test
@@ -63,6 +63,32 @@ public class Chap01Test {
             int[] expected = answers.get(i);
 
             Assertions.assertArrayEquals(expected, answer);
+        }
+    }
+
+    @Test
+    void Problem03() {
+        ArrayList<int[][]> inputs = new ArrayList<>();
+        ArrayList<Integer> answers = new ArrayList<>();
+
+        inputs.add(new int[][]{
+                {0, 0, 0, 0, 0, 0, 1, 0, 0, 0},
+                {0, 0, 0, 0, 1, 0, 0, 0, 0, 0},
+                {0, 0, 0, 1, 0, 0, 0, 1, 0, 0},
+                {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                {0, 0, 0, 1, 0, 0, 0, 2, 0, 0},
+                {1, 0, 0, 0, 0, 0, 1, 0, 0, 0},
+                {0, 0, 0, 1, 0, 0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0, 3, 0, 0, 0, 1},
+                {0, 0, 0, 1, 0, 1, 0, 0, 0, 0},
+                {0, 1, 0, 1, 0, 0, 0, 0, 0, 0}
+        });
+
+        answers.add(51);
+
+        for(int i = 0; i < answers.size(); i++){
+            int answer = Chap01_03.solution(inputs.get(i));
+            Assertions.assertEquals(answers.get(i), answer);
         }
     }
 }
