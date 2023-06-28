@@ -35,14 +35,16 @@ public class Chap01_03 {
             if(hyunSuFlag){
                 HyunSu[0] = nxHyunSu;
                 HyunSu[1] = nyHyunSu;
+
             }
 
             if(dogFlag){
                 Dog[0] = nxDog;
                 Dog[1] = nyDog;
+
             }
 
-            if(nxHyunSu == nxDog && nyHyunSu == nyDog) break;
+            if(HyunSu[0] == Dog[0] && HyunSu[1] == Dog[1]) break;
         }
 
         if(answer >= 10000) return 0;
