@@ -119,4 +119,68 @@ public class Chap01Test {
         Assertions.assertEquals(6, Chap01_05.solution(new int[]{3, 2, 1, 3, 2, 4, 6, 7, 3, 1}));
         Assertions.assertEquals(5, Chap01_05.solution(new int[]{1, 3, 1, 2, 1, 5, 3, 2, 1, 1}));
     }
+
+    @Test
+    void Problem06(){
+        ArrayList<int[][]> fruits = new ArrayList<>();
+        ArrayList<Integer> answers = new ArrayList<>();
+
+        answers.add(58);
+        answers.add(24);
+        answers.add(32);
+
+        fruits.add(new int[][]{
+                {10, 20, 30},
+                {12, 15, 20},
+                {20, 12, 15},
+                {15, 20, 10},
+                {10, 15, 10}});
+
+        fruits.add(new int[][]{
+                {10, 9, 11},
+                {15, 20, 25}});
+
+        fruits.add(new int[][]{
+                {0, 3, 27},
+                {20, 5, 5},
+                {19, 5, 6},
+                {10, 10, 10},
+                {15, 10, 5},
+                {3, 7, 20}});
+
+        for(int i = 0; i < answers.size(); i++){
+            int[][] fruit = fruits.get(i);
+            int answer = answers.get(i);
+
+            Assertions.assertEquals(answer, Chap01_06.solution(fruit));
+        }
+
+    }
+
+    @Test
+    void Problem07(){
+        Assertions.assertEquals(8,
+                Chap01_07.solution(
+                    new int[]{2, 5, 3, 7, 1, 6, 4, 9, 8},
+                    "7596218")
+        );
+
+        Assertions.assertEquals(12,
+                Chap01_07.solution(
+                        new int[]{1, 5, 7, 3, 2, 8, 9, 4, 6},
+                        "63855526592")
+        );
+
+        Assertions.assertEquals(13,
+                Chap01_07.solution(
+                        new int[]{2, 9, 3, 7, 8, 6, 4, 5, 1},
+                        "323254677")
+        );
+
+        Assertions.assertEquals(8,
+                Chap01_07.solution(
+                        new int[]{1, 6, 7, 3, 8, 9, 4, 5, 2},
+                        "3337772122")
+        );
+    }
 }
