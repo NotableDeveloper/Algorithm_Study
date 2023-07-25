@@ -183,4 +183,19 @@ public class Chap01Test {
                         "3337772122")
         );
     }
+
+    @Test
+    void Problem08(){
+        Assertions.assertArrayEquals(new int[]{3, 1, 2, 2},
+                Chap01_08.solution(new int[]{1, 2, 3, 4},
+                        new int[]{2, 4, 1, 3}));
+
+        Assertions.assertArrayEquals(new int[]{3, 1, 2, 1, 3},
+                Chap01_08.solution(new int[]{1, 2, 5, 3, 4},
+                        new int[]{2, 3, 1, 4, 5}));
+
+        Assertions.assertArrayEquals(new int[]{6, 2, 2, 4, 2, 3, 4, 1},
+                Chap01_08.solution(new int[]{1, 3, 2, 4, 5, 7, 6, 8},
+                        new int[]{2, 3, 5, 6, 1, 4, 8, 7}));
+    }
 }
