@@ -20,7 +20,6 @@ public class Chap02_01 {
 
         if(hm.isEmpty())
             answer = -1;
-
         else{
             for(int i : hm.values()){
                 answer = Math.min(i, answer);
