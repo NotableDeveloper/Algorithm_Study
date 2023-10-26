@@ -1,7 +1,9 @@
+package BOJ.bruteforce;
+
 import java.io.*;
 import java.util.Arrays;
 
-class Main {
+class BOJ7696 {
   static int[] dic = new int[1000001];
   static boolean[] used = new boolean[10];
 
@@ -11,8 +13,7 @@ class Main {
     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     while (true) {
       int num = Integer.parseInt(br.readLine());
-      if (num == 0)
-        break;
+      if (num == 0) break;
       System.out.println(dic[num]);
     }
   }
