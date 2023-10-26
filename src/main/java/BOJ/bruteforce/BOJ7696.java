@@ -1,37 +1,39 @@
-package BOJ.bruteforce;
+import java.io.*;
+import java.util.Arrays;
 
-public class BOJ7696 {
-  public static void main(String[] args) {
-    int n = 10; // 원하는 순번 (n을 변경하세요)
+class Main {
+  static int[] dic = new int[1000001];
+  static boolean[] used = new boolean[10];
 
-    int count = 0;
-    int num = 1;
+  public static void main(String[] args) throws IOException {
+    init();
 
-    while (count < n) {
-      String numStr = Integer.toString(num);
-      boolean hasRepeatingDigit = false;
-
-      for (int i = 0; i < numStr.length() - 1; i++) {
-        for (int j = i + 1; j < numStr.length(); j++) {
-          if (numStr.charAt(i) == numStr.charAt(j)) {
-            hasRepeatingDigit = true;
-            break;
-          }
-        }
-        if (hasRepeatingDigit) {
-          break;
-        }
-      }
-
-      if (!hasRepeatingDigit) {
-        count++;
-      }
-
-      if (count == n) {
-        System.out.println("The " + n + "th number without repeating digits is: " + num);
-      }
-
-      num++;
+    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    while (true) {
+      int num = Integer.parseInt(br.readLine());
+      if (num == 0)
+        break;
+      System.out.println(dic[num]);
     }
+  }
+
+  static void init() {
+    for (int idx = 1, num = 1; idx <= 1000000; num++) {
+      if (!isDistinct(num)) {
+        dic[idx++] = num;
+      }
+    }
+  }
+
+  static boolean isDistinct(int num) {
+    Arrays.fill(used, false);
+    while (num != 0) {
+      if (used[num % 10]) {
+        return true;
+      }
+      used[num % 10] = true;
+      num /= 10;
+    }
+    return false;
   }
 }
