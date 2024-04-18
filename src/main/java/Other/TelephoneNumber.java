@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TelephoneNumber {
+
     public static String[] solution(String hopeNumber, String[] existsNumbers) {
         List<String> possiblePhoneNumbers = new ArrayList<>();
         List<String> existsPhoneNumbers = new ArrayList<>();
@@ -13,8 +14,8 @@ public class TelephoneNumber {
             generateDigit(existsNumber, 0, new StringBuilder(), existsPhoneNumbers);
         }
 
-				/*
-		        사용 가능한 번호 목록에서 이미 있는 번호 목록을 지움.
+        /*
+		    사용 가능한 번호 목록에서 이미 있는 번호 목록을 지움.
         */
         existsPhoneNumbers.forEach(possiblePhoneNumbers::remove);
 
@@ -37,7 +38,7 @@ public class TelephoneNumber {
             phoneNumbers.add(currentNumber.toString());
             return;
         }
-
+        
         char currentChar = hopeNumber.charAt(index);
 
         /*

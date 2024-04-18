@@ -1,5 +1,7 @@
 package Inflearn.Basic.Chap01;
 
+import java.util.stream.Stream;
+
 public class Chap01_01 {
     public static int solution(String s, char c){
         int answer = 0;
