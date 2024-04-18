@@ -36,6 +36,11 @@ public class Chap08_02 {
         Q.offer(s);
         int L = 0;
 
+        /*
+            지하철 노선을 탐색한다. 역을 탐색할 때 노선을 보고
+            아직 탐색하지 않은 노선이라면 환승하면서 다른 역을 탐색하며
+            목적지를 찾는다.
+        */
         while (!Q.isEmpty()) {
             int len = Q.size();
             for (int i = 0; i < len; i++) {
