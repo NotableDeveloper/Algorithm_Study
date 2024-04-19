@@ -2,6 +2,12 @@ package Other;
 
 import java.util.*;
 
+/*
+    가중치가 있는 그래프 문제.
+
+    각 은행마다 수수료가 주어지고 최소한의 수수료로
+    1번 은행에서 목적지 은행에 송금하기.
+*/
 public class PostFee {
     public static int solution(int N, int K, int[][] fees) {
         // 그래프를 나타내기 위한 인접 리스트 생성

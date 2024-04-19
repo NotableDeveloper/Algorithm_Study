@@ -1,6 +1,8 @@
 package Other;
 
 /*
+    연속으로 반복되는 문자 제거하기
+
     browoanoommnaon
 
     1. "browoanoommnaon"
@@ -22,6 +24,7 @@ public class SameCharDelete {
     static void DFS(String cipherText, StringBuilder sb){
         for(int i = 0; i < cipherText.length(); i++){
             int next = i + 1;
+
             if(next <= cipherText.length() - 1 &&
                     cipherText.charAt(i) == cipherText.charAt(next)){
 

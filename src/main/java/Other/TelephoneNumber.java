@@ -2,7 +2,12 @@ package Other;
 
 import java.util.ArrayList;
 import java.util.List;
+/*
+    여섯 자리 형식의 전화번호 체계에서 희망하는 전화번호와
+    이미 사용중인 전화번호를 입력 받아서 사용 가능한 전화번호 반환하기.
 
+    전화 한 자리는 0 ~ 9가 올 수 있고, X는 와일드카드.
+*/
 public class TelephoneNumber {
 
     public static String[] solution(String hopeNumber, String[] existsNumbers) {

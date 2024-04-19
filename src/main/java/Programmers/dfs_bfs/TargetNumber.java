@@ -1,4 +1,8 @@
-package Other;
+package Programmers.dfs_bfs;
+
+/*
+    https://school.programmers.co.kr/learn/courses/30/lessons/43165
+*/
 public class TargetNumber {
     static int count = 0;
 

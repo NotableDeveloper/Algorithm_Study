@@ -4,6 +4,10 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Queue;
 
+/*
+    주사위를 사용하는 보드 게임에서 가장 적게 주사위를 굴려서
+    목적지에 도착하기
+*/
 public class BoardGame {
     public static int solution(int field, int[][] jumps){
         int[] check = new int[field];

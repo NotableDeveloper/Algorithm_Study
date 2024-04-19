@@ -3,6 +3,9 @@ package Other;
 import java.util.ArrayList;
 import java.util.Collections;
 
+/*
+    2차원 배열 내의 영역 넓이 구하기
+*/
 public class Area {
     static final int[] dx = {0, 0, -1, 1};
     static final int[] dy = {-1, 1, 0, 0};

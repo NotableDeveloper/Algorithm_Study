@@ -1,4 +1,4 @@
-package Other;
+package Programmers.dfs_bfs;
 
 import java.util.LinkedList;
 import java.util.Queue;
@@ -13,6 +13,10 @@ class Point {
     }
 }
 
+/*
+    맵의 최단 경로 구하기
+    1 = 길, 0 = 벽
+*/
 public class GameMapShortestPath {
     static int[][] direction = {{0, -1}, {0, 1}, {-1, 0}, {1, 0}};
 
