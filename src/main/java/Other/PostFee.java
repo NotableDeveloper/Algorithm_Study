@@ -2,64 +2,96 @@ package Other;
 
 import java.util.*;
 
+class BankFee implements Comparable<BankFee>{
+    int index;
+
+    int fee;
+
+    public BankFee(int index, int fee){
+        this.index = index;
+        this.fee = fee;
+    }
+
+    @Override
+    public int compareTo(BankFee bankFee) {
+        return Integer.compare(this.fee, bankFee.fee);
+    }
+}
+
 /*
     가중치가 있는 그래프 문제.
 
     각 은행마다 수수료가 주어지고 최소한의 수수료로
-    1번 은행에서 목적지 은행에 송금하기.
+    첫 번째 은행에서 목적지 은행에 송금하기.
 */
 public class PostFee {
     public static int solution(int N, int K, int[][] fees) {
-        // 그래프를 나타내기 위한 인접 리스트 생성
-        List<int[]>[] graph = new ArrayList[N + 1];
-        for (int i = 1; i <= N; i++) {
+        boolean[] check = new boolean[N + 1];
+        int[] dist = new int[N + 1];
+
+        ArrayList<BankFee>[] graph = new ArrayList[N + 1];
+
+        for(int i = 0; i <= N; i++){
             graph[i] = new ArrayList<>();
         }
 
-        // 그래프 초기화
-        for (int[] fee : fees) {
-            int u = fee[0];
-            int v = fee[1];
+        /*
+            graph 초기화 작업을 한다.
+            graph[N]에는 N번째 은행과 인접한 은행과 그 은행으로
+            송금할 때의 비용을 담는다.
+        */
+        for(int[] fee : fees){
+            int sendBank = fee[0];
+            int receiveBank = fee[1];
             int cost = fee[2];
-            graph[u].add(new int[]{v, cost});
-            graph[v].add(new int[]{u, cost});
+
+            graph[sendBank].add(new BankFee(receiveBank, cost));
         }
 
-        // 다익스트라 알고리즘을 위한 우선순위 큐
-        PriorityQueue<int[]> pq = new PriorityQueue<>(Comparator.comparingInt(a -> a[1]));
-        pq.offer(new int[]{1, 0}); // 시작 정점은 1번 은행이고 수수료는 0원
+        // 다른 은행들의 가중치를 모두 무한으로 초기화한다.
+        Arrays.fill(dist, Integer.MAX_VALUE);
 
-        // 최소 수수료를 저장하는 배열
-        int[] minFees = new int[N + 1];
-        Arrays.fill(minFees, Integer.MAX_VALUE);
-        minFees[1] = 0; // 시작 정점의 수수료는 0원
+        // 시작 은행인 1번 은행은 가중치를 0으로 둔다.
+        dist[1] = 0;
+        PriorityQueue<BankFee> pq = new PriorityQueue<>();
 
-        // 다익스트라 알고리즘 수행
-        while (!pq.isEmpty()) {
-            int[] cur = pq.poll();
-            int curNode = cur[0];
-            int curFee = cur[1];
+        // 첫 번째 은행을 Queue에 넣는다.
+        pq.offer(new BankFee(1, 0));
 
-            if (curNode == K) { // 목적지에 도달하면 최소 수수료 반환
-                return curFee;
-            }
 
-            // 현재 노드에서 인접한 노드들을 탐색
-            for (int[] next : graph[curNode]) {
-                int nextNode = next[0];
-                int nextFee = next[1];
+        // 우선순위 큐가 빌 때까지 반복한다.
+        while(!pq.isEmpty()){
+            /*
+                큐의 가장 앞에 있는 값을 가져온다. 이 값은 현재 큐에 있는
+                값 중에서 출발지로부터 가장 작은 비용으로 올 수 있는 은행이 된다.
+            */
+            int currentBank = pq.poll().index;
 
-                // 현재까지의 수수료와 인접한 노드로의 수수료를 합한 값이
-                // 기존에 저장된 최소 수수료보다 작으면 업데이트
-                if (minFees[nextNode] > curFee + nextFee) {
-                    minFees[nextNode] = curFee + nextFee;
-                    pq.offer(new int[]{nextNode, minFees[nextNode]});
+            // 현재 은행이 방문 상태이면 그 다음으로 적은 비용의 은행을 방문한다.
+            if(check[currentBank]) continue;
+
+            // 현재 은행을 방문하기 전에 방문 처리를 한다.
+            check[currentBank] = true;
+
+            // 현재 은행과 인접한 은행들을 살펴본다.
+            for(BankFee nextBank : graph[currentBank]){
+                /*
+                    출발 은행에서 현재 방문한 은행까지의 비용이 다음 은행까지 가려는 비용보다 작다면
+                    비용을 계산하는 배열을 갱신한다.
+                */
+                if(dist[nextBank.index] > dist[currentBank] + nextBank.fee){
+                    dist[nextBank.index] = dist[currentBank] + nextBank.fee;
+                    // 다음 은행을 방문하기 위해 우선순위 큐에 넣는다.
+                    pq.offer(new BankFee(nextBank.index, dist[currentBank]));
                 }
             }
         }
 
-        // 목적지에 도달할 수 없는 경우 -1 반환
-        return -1;
+        /*
+            비용을 계산하는 배열에서 도착 은행의 값을 반환하면
+            출발지로부터 해당 은행까지의 비용을 알 수 있다.
+        */
+        return dist[K];
     }
 
     public static void main(String[] args) {

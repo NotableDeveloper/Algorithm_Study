@@ -7,18 +7,24 @@ public class Chap02_03 {
         ArrayList<String> answer = new ArrayList();
 
         for(int i = 0; i < n; i++){
-            int result = log_A[i] - log_B[i];
+            if(log_A[i] == log_B[i])
+                answer.add("D");
 
-            switch (result){
-                case -1 : answer.add("B"); break;
-                case -2 : answer.add("A"); break;
-                case 0 : answer.add("D"); break;
-                case 1 : answer.add("A"); break;
-                case 2 : answer.add("B"); break;
-                default: break;
-            }
+            else if((log_A[i] + 2) % 3 == log_B[i])
+                answer.add("A");
+
+            else answer.add("B");
         }
 
         return answer.toArray(new String[0]);
+    }
+
+    public static void main(String[] args) {
+        int[] log_A = {2, 3, 3, 1, 3};
+        int[] log_B = {1, 1, 2, 2, 3};
+
+        for(String result : solution(5, log_A, log_B)){
+            System.out.println(result);
+        }
     }
 }

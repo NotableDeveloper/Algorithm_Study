@@ -1,7 +1,7 @@
 package Inflearn.Basic.Chap01;
 
 public class Chap01_02 {
-    public static String solution(String s){
+    public static String solution1(String s){
         StringBuilder answer = new StringBuilder();
 
         for(char c : s.toCharArray()){
