@@ -87,6 +87,7 @@ public class PostFee {
             }
         }
 
+
         /*
             비용을 계산하는 배열에서 도착 은행의 값을 반환하면
             출발지로부터 해당 은행까지의 비용을 알 수 있다.
@@ -96,6 +97,7 @@ public class PostFee {
 
     public static void main(String[] args) {
         int[][] fees = new int[][]{{1, 2, 1000}, {2, 3, 1000}, {2, 4, 3500}, {3, 4, 1000}, {4, 5, 1000}};
+
         System.out.println(solution(5, 4, fees));
     }
 }
