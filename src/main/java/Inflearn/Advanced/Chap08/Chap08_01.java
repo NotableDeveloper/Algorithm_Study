@@ -43,11 +43,14 @@ public class Chap08_01 {
         int L = 0;
 
         while(!Q.isEmpty()){
+            // Queue에서 현재 노드 위치와 출발지에서 소모한 최소 비용을 꺼냄
             AirPlane current = Q.poll();
 
             for(AirPlane next : graph[current.index]) {
                 if(current.cost + next.cost < costs[next.index]) {
+                    // 현재까지 오는 데에 소모한 최소 비용을 포함하여 다음 위치까지의 최소 비용 갱신
                     costs[next.index] = current.cost + next.cost;
+                    // Queue에 다음 노드 및 현재까지 소모한 최소 비용을 전달
                     Q.offer(new AirPlane(next.index, costs[current.index]));
                 }
             }
