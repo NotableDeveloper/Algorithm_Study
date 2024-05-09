@@ -3,62 +3,56 @@ package BOJ.dfs_bfs;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.StringTokenizer;
+import java.util.*;
 
 public class BOJ1068 {
-    public static int solution(int n, int[] tree, int delete){
-        if(delete == 0) return 0;
-
-        int answer = 0;
-        ArrayList<Integer>[] graph = new ArrayList[n];
-        Queue<Integer> Q = new LinkedList<>();
-
-        for(int i = 0; i < n; i++){
-            graph[i] = new ArrayList<>();
-        }
-
-        for(int i = 0; i < tree.length; i++){
-            if(tree[i] == -1) continue;
-            graph[tree[i]].add(i);
-        }
-
-        Q.offer(0);
-
-
-        while(!Q.isEmpty()){
-            int current = Q.poll();
-
-            for(int next : graph[current]){
-                if(next == delete) continue;
-
-                if(graph[next].isEmpty()) {
-                    answer++;
-                }
-
-                else Q.offer(next);
-            }
-
-        }
-
-        return answer;
-    }
+    static int N;
+    static ArrayList<Integer>[] graph;
+    static int result = 0;
+    static int start = 0;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        int n = Integer.parseInt(br.readLine());
-        int[] tree = new int[n];
+        N = Integer.parseInt(br.readLine());
+
+        graph = new ArrayList[N];
+        for (int i = 0; i < N; i++) {
+            graph[i] = new ArrayList<>();
+        }
 
         StringTokenizer st = new StringTokenizer(br.readLine());
 
-        for(int i = 0; i < tree.length; i++){
-            tree[i] = Integer.parseInt(st.nextToken());
+        for (int i = 0; i < N; i++) {
+            int parent = Integer.parseInt(st.nextToken());
+            if (parent != -1) graph[parent].add(i);
+            else start = i;
         }
 
         int delete = Integer.parseInt(br.readLine());
 
-        System.out.println(solution(n, tree, delete));
+        bfs(delete);
+        System.out.println(result);
+    }
+
+    public static void bfs(int delete) {
+        Queue<Integer> q = new LinkedList<>();
+
+        if (start == delete) return;
+
+        q.offer(start);
+
+        while (!q.isEmpty()) {
+            int node = q.poll();
+            int count = 0;
+
+            for (int next : graph[node]) {
+                if (next != delete) {
+                    q.offer(next);
+                    count++;
+                }
+            }
+
+            if (count == 0) result++;
+        }
     }
 }
