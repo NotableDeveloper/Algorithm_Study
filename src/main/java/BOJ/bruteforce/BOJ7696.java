@@ -5,12 +5,16 @@ import java.util.Arrays;
 
 class BOJ7696 {
   static int[] dic = new int[1000001];
-  static boolean[] used = new boolean[10];
 
   public static void main(String[] args) throws IOException {
-    init();
+    for (int idx = 1, num = 1; idx <= 1000000; num++) {
+      if (!isDistinct(num)) {
+        dic[idx++] = num;
+      }
+    }
 
     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
     while (true) {
       int num = Integer.parseInt(br.readLine());
       if (num == 0) break;
@@ -18,16 +22,10 @@ class BOJ7696 {
     }
   }
 
-  static void init() {
-    for (int idx = 1, num = 1; idx <= 1000000; num++) {
-      if (!isDistinct(num)) {
-        dic[idx++] = num;
-      }
-    }
-  }
-
   static boolean isDistinct(int num) {
+    boolean[] used = new boolean[10];
     Arrays.fill(used, false);
+
     while (num != 0) {
       if (used[num % 10]) {
         return true;
