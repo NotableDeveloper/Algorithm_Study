@@ -1,4 +1,4 @@
-package Other;
+package Other.dfs_bfs;
 
 import java.util.ArrayList;
 import java.util.Arrays;

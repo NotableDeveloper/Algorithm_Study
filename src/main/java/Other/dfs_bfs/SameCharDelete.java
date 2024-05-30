@@ -1,4 +1,4 @@
-package Other;
+package Other.dfs_bfs;
 
 /*
     연속으로 반복되는 문자 제거하기
