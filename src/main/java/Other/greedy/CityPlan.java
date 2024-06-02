@@ -49,7 +49,6 @@ public class CityPlan {
         }
 
         Arrays.sort(houses);
-        //Arrays.stream(houses).toList().forEach(h -> System.out.println(h.a + " -> " + h.b + " = " + h.cost));
 
         int last = 0;
 
